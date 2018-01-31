@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="styles/kendo.default.mobile.min.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+	<script src="js/script.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a onclick="setValue(2012)">2012</a>
+    <a onclick="setValue(2013)">2013</a>
+    <a onclick="setValue(2014)">2014</a>
+	<a onclick="setValue(2015)">2015</a>
+    <a onclick="setValue(2016)">2016</a>
+  </div>
+</div>
+<div class = "bottomCenter">
+	<div id="example">
+    <div class="demo-section k-content">
+        <h4>ProgressBar</h4>
+        <div id="progressBar"></div>
+        <button id="startProgress" class="k-button k-primary">Start progress</button>
+    </div>
+</div>
+<script>
+$(document).ready(function () {
+	$("#progressBar").kendoProgressBar({
+		min: 2012,
+		max: 2017,
+		type: "value",
+		change: onChange,
+		complete: onComplete
+	});
+	document.getElementById("console").innerHTML = 2012;
+});
+
+function onChange(e) {
+	//kendoConsole.log("Change event :: value is " + e.value);
+	document.getElementById("console").innerHTML = e.value;
+}
+
+function onComplete(e) {
+	//kendoConsole.log("Complete event :: value is " + e.value);
+
+	//$("#startProgress").text("Restart Progress").removeClass("k-state-disabled");
+}
+
+$("#startProgress").click(function () {
+	//if (!$(this).hasClass("k-state-disabled")) {
+		//$(this).addClass("k-state-disabled");
+		progress();
+   // }
+});
+
+
+
+function progress() {
+	//var pb = $("#progressBar").data("kendoProgressBar");
+	//pb.value(0);
+	if(Progress.value() >= 2017) {
+		Progress.value(0);
+	}
+	var interval = setInterval(function () {
+		if (Progress.value() < 2017) {
+			Progress.value(Progress.value() + 1);
+		} else {
+			clearInterval(interval);
+		}
+	}, 500);
+}
+</script>
+</body>
+</html>

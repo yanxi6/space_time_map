@@ -5,5 +5,5 @@ The project is an online map called spatial temporal map on Giardiasis events in
 
 ## Techs stack
 Front-end: HTML, CSS3, bootsrap4, jQuery 1.12.1 </br>
-Transport data: AJAX
+Transport data: AJAX</br>
 Back-end: php-5.6
